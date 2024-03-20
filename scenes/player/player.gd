@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 var speed: int = 500
 
@@ -9,11 +9,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
+func _process(_delta):
 	# input
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	position += direction * delta * speed
+	velocity = direction * speed
+	move_and_slide()
 	
 	# laser shooting input
 	if Input.is_action_just_pressed("primary_action"):
