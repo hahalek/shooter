@@ -1,32 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwrcykqrx2d1l"]
+[gd_scene load_steps=4 format=3 uid="uid://cwrcykqrx2d1l"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_8amjk"]
-[ext_resource type="Texture2D" uid="uid://dyipwcgcfa40f" path="res://graphics/objects/gate.png" id="2_xcsdl"]
 [ext_resource type="PackedScene" uid="uid://bobfb8c57h6vj" path="res://scenes/player/player.tscn" id="3_e4xbj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_is7ax"]
-size = Vector2(833, 192)
+[ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="3_sudkb"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8amjk")
 
-[node name="Gate" type="StaticBody2D" parent="."]
-
-[node name="Gate" type="Sprite2D" parent="Gate"]
-position = Vector2(509, -556)
-texture = ExtResource("2_xcsdl")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
-polygon = PackedVector2Array(-930, -1336, -928, -48, -922, 21, -901, 88, -848, 151, -794, 191, -724, 214, -671, 223, 143, 222, 145, -221, 1002, -221, 1002, 223, 1830, 223, 1914, 204, 1974, 166, 2026, 111, 2059, 41, 2069, -21, 2070, -1334)
-
-[node name="Area2D" type="Area2D" parent="Gate"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
-position = Vector2(571.5, 130)
-shape = SubResource("RectangleShape2D_is7ax")
+[node name="Gate" parent="." instance=ExtResource("3_sudkb")]
+position = Vector2(534, -501)
 
 [node name="Player" parent="." instance=ExtResource("3_e4xbj")]
-position = Vector2(513, 432)
+position = Vector2(483, 539)
 
-[connection signal="body_entered" from="Gate/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Gate/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="player_enered_gate" from="Gate" to="." method="_on_gate_player_enered_gate"]
+[connection signal="granade_thrown" from="Player" to="." method="_on_player_granade_thrown"]
+[connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]

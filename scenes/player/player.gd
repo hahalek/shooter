@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal laser_shot
+signal granade_thrown
+
 var speed: int = 500
 var can_laser: bool = true
 var can_granade: bool = true
@@ -20,18 +23,20 @@ func _process(_delta):
 	# laser shooting input
 	if Input.is_action_just_pressed("primary_action") and can_laser:
 		print("pew pew")
+		laser_shot.emit()
 		can_laser = false
-		$laser_timer.start()
+		$LaserCooldownTimer.start()
 	
 	if Input.is_action_just_released("secondary_action") and can_granade:
 		print("shoot granade")
+		granade_thrown.emit()
 		can_granade = false
-		$granade_timer.start()
+		$GranadeReloadTimer.start()
 
 
-func _on_laser_timer_timeout():
+func _on_laser_cooldown_timer_timeout():
 	can_laser = true
 
 
-func _on_granade_timer_timeout():
+func _on_granade_reload_timer_timeout():
 	can_granade = true
