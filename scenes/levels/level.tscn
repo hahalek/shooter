@@ -1,24 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwrcykqrx2d1l"]
+[gd_scene load_steps=5 format=3 uid="uid://cwrcykqrx2d1l"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_8amjk"]
-[ext_resource type="PackedScene" uid="uid://b457ggi22tegd" path="res://scenes/objects/drone.tscn" id="2_haucy"]
+[ext_resource type="Texture2D" uid="uid://dyipwcgcfa40f" path="res://graphics/objects/gate.png" id="2_xcsdl"]
 [ext_resource type="PackedScene" uid="uid://bobfb8c57h6vj" path="res://scenes/player/player.tscn" id="3_e4xbj"]
-[ext_resource type="PackedScene" uid="uid://bclpyixlwmfwg" path="res://scenes/objects/toilet.tscn" id="4_b8mqc"]
-[ext_resource type="PackedScene" uid="uid://dfqbwb7jiuqsb" path="res://scenes/objects/bed.tscn" id="4_imrir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is7ax"]
+size = Vector2(833, 192)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8amjk")
 
-[node name="Bed" parent="." instance=ExtResource("4_imrir")]
-position = Vector2(694, -29)
+[node name="Gate" type="StaticBody2D" parent="."]
 
-[node name="Toilet" parent="." instance=ExtResource("4_b8mqc")]
-position = Vector2(77, 493)
-rotation = -1.5708
-scale = Vector2(0.6, 0.6)
+[node name="Gate" type="Sprite2D" parent="Gate"]
+position = Vector2(509, -556)
+texture = ExtResource("2_xcsdl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
+polygon = PackedVector2Array(-930, -1336, -928, -48, -922, 21, -901, 88, -848, 151, -794, 191, -724, 214, -671, 223, 143, 222, 145, -221, 1002, -221, 1002, 223, 1830, 223, 1914, 204, 1974, 166, 2026, 111, 2059, 41, 2069, -21, 2070, -1334)
+
+[node name="Area2D" type="Area2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
+position = Vector2(571.5, 130)
+shape = SubResource("RectangleShape2D_is7ax")
 
 [node name="Player" parent="." instance=ExtResource("3_e4xbj")]
-position = Vector2(838, 349)
+position = Vector2(513, 432)
 
-[node name="Drone" parent="." instance=ExtResource("2_haucy")]
-position = Vector2(-174, 228)
+[connection signal="body_entered" from="Gate/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gate/Area2D" to="." method="_on_area_2d_body_exited"]

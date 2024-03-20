@@ -10,3 +10,10 @@ func _ready():
 func _process(_delta):
 	pass
 
+
+func _on_area_2d_body_entered(_body):
+	pass
+
+
+func _on_area_2d_body_exited(_body):
+	pass
