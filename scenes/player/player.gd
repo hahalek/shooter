@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal laser_shot(position)
-signal granade_thrown
+signal granade_thrown(position)
 
 var speed: int = 500
 var can_laser: bool = true
@@ -31,7 +31,7 @@ func _process(_delta):
 		$LaserCooldownTimer.start()
 	
 	if Input.is_action_just_released("secondary_action") and can_granade:
-		granade_thrown.emit()
+		granade_thrown.emit($LaserStartPositions/Marker2D.global_position)
 		can_granade = false
 		$GranadeReloadTimer.start()
 

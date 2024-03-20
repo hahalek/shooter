@@ -1,6 +1,7 @@
 extends Node2D
 
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
+var granade_scene: PackedScene = preload("res://scenes/projectiles/granade.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,9 +23,12 @@ func _on_player_laser_shot(pos):
 	laser.position = pos
 	# 2. we have to move the laser
 	# 3. i want to add the laser scene to a Node2D
-	add_child(laser)
+	$Projectiles.add_child(laser)
 	print("Laser shot from the level")
 
 
-func _on_player_granade_thrown():
+func _on_player_granade_thrown(pos):
+	var granade = granade_scene.instantiate()
+	granade.position = pos
+	$Projectiles.add_child(granade)
 	print("Granade thrown from the level")
