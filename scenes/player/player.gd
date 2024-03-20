@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal laser_shot
+signal laser_shot(position)
 signal granade_thrown
 
 var speed: int = 500
@@ -22,13 +22,15 @@ func _process(_delta):
 	
 	# laser shooting input
 	if Input.is_action_just_pressed("primary_action") and can_laser:
-		print("pew pew")
-		laser_shot.emit()
+		# randomly select Marker2D for the laser start
+		var gun_markers = $LaserStartPositions.get_children()
+		var selected_laser = gun_markers[randi() % gun_markers.size()]
+		# emit the position of Marker2D we selected
+		laser_shot.emit(selected_laser.global_position)
 		can_laser = false
 		$LaserCooldownTimer.start()
 	
 	if Input.is_action_just_released("secondary_action") and can_granade:
-		print("shoot granade")
 		granade_thrown.emit()
 		can_granade = false
 		$GranadeReloadTimer.start()
