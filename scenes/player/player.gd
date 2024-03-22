@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal laser_shot(pos, direction)
 signal granade_thrown(pos, direction)
 
-var speed: int = 500
+var speed: int = 700
 var can_laser: bool = true
 var can_granade: bool = true
 
