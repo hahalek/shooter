@@ -22,7 +22,7 @@ func _on_player_laser_shot(pos, laser_direction):
 	# 1. update the laser position
 	laser.position = pos
 	laser.direction = laser_direction
-	laser.rotation = laser_direction.angle()
+	laser.rotation = laser_direction.angle() + PI / 2
 	# 2. we have to move the laser
 	# 3. i want to add the laser scene to a Node2D
 	$Projectiles.add_child(laser)
