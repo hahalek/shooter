@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cijcuoj01unfh" path="res://graphics/projectiles/grenade.png" id="1_eoe2j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cm0l2"]
+friction = 10.0
+bounce = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aalwe"]
 radius = 18.0278
@@ -11,6 +13,7 @@ radius = 18.0278
 [node name="Granade" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_cm0l2")
 gravity_scale = 0.0
+angular_damp = 1.6
 script = ExtResource("1_56e4n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

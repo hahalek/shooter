@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal laser_shot(pos)
+signal laser_shot(pos, direction)
 signal granade_thrown(pos, direction)
 
 var speed: int = 500
@@ -30,14 +30,15 @@ func _process(_delta):
 		var selected_laser = gun_markers[randi() % gun_markers.size()]
 		# emit the position of Marker2D we selected
 		var pos = selected_laser.global_position
-		laser_shot.emit(pos)
+		var laser_direction = (get_global_mouse_position() - pos).normalized()
+		laser_shot.emit(pos, laser_direction)
 		can_laser = false
 		$LaserCooldownTimer.start()
 	
 	if Input.is_action_just_released("secondary_action") and can_granade:
 		var pos = $LaserStartPositions/Marker2D.global_position
-		var player_direction = (get_global_mouse_position() - position).normalized()
-		granade_thrown.emit(pos, player_direction)
+		var granade_direction = (get_global_mouse_position() - pos).normalized()
+		granade_thrown.emit(pos, granade_direction)
 		can_granade = false
 		$GranadeReloadTimer.start()
 
