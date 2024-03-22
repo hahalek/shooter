@@ -27,8 +27,9 @@ func _on_player_laser_shot(pos):
 	print("Laser shot from the level")
 
 
-func _on_player_granade_thrown(pos):
-	var granade = granade_scene.instantiate()
+func _on_player_granade_thrown(pos, direction):
+	var granade = granade_scene.instantiate() as RigidBody2D
 	granade.position = pos
+	granade.linear_velocity = direction * 100
 	$Projectiles.add_child(granade)
 	print("Granade thrown from the level")
