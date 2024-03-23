@@ -6,6 +6,8 @@
 radius = 133.034
 
 [node name="Toilet" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mhml5")

@@ -11,6 +11,8 @@ bounce = 0.4
 radius = 18.0278
 
 [node name="Granade" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_cm0l2")
 gravity_scale = 0.0
 angular_damp = 1.6
