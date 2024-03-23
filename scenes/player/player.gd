@@ -18,7 +18,6 @@ func _process(_delta):
 	# input
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
-	move_and_slide()
 	
 	# rotate player
 	look_at(get_global_mouse_position())
@@ -31,6 +30,8 @@ func _process(_delta):
 		# emit the position of Marker2D we selected
 		var pos = selected_laser.global_position
 		var laser_direction = (get_global_mouse_position() - pos).normalized()
+		$GPUParticles2D.emitting = true
+		velocity = -laser_direction * speed * 1.2
 		laser_shot.emit(pos, laser_direction)
 		can_laser = false
 		$LaserCooldownTimer.start()
@@ -41,6 +42,8 @@ func _process(_delta):
 		granade_thrown.emit(pos, granade_direction)
 		can_granade = false
 		$GranadeReloadTimer.start()
+	
+	move_and_slide()
 
 
 func _on_laser_cooldown_timer_timeout():
