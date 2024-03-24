@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bobfb8c57h6vj"]
+[gd_scene load_steps=7 format=3 uid="uid://bobfb8c57h6vj"]
 
 [ext_resource type="Texture2D" uid="uid://f66m10vjjy2e" path="res://graphics/player/player.png" id="1_da8ju"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_td1ul"]
@@ -19,6 +19,9 @@ color = Color(0.682353, 0.901961, 0.968627, 0.847059)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sorcv"]
 radius = 62.0081
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bprkk"]
+polygon = PackedVector2Array(-53, -32, -48, -43, -36, -47, -30, -46, -28, -51, -14, -58, -11, -57, 4, -60, 12, -58, 20, -62, 28, -60, 33, -52, 36, -48, 44, -40, 45, -36, 50, -30, 56, -29, 65, -24, 73, -16, 81, -11, 87, -11, 95, -7, 102, -4, 108, -4, 112, -1, 112, 3, 124, 2, 127, 6, 131, 9, 134, 20, 132, 29, 128, 32, 123, 30, 123, 35, 112, 36, 108, 33, 104, 40, 97, 44, 96, 50, 92, 53, 71, 53, 60, 50, 60, 45, 63, 42, 46, 40, 33, 44, 20, 47, 4, 57, -17, 61, -31, 55, -36, 46, -43, 33, -52, 22, -50, 15, -56, 11, -59, 1, -59, -11, -59, -24)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -61,6 +64,9 @@ position = Vector2(129, 12)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(128, 27)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_bprkk")
 
 [connection signal="timeout" from="LaserCooldownTimer" to="." method="_on_laser_cooldown_timer_timeout"]
 [connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_granade_reload_timer_timeout"]
