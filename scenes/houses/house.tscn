@@ -339,3 +339,8 @@ metadata/_edit_lock_ = true
 position = Vector2(-1673, -3.05176e-05)
 rotation = 1.5708
 metadata/_edit_lock_ = true
+
+[node name="WallLamp3" parent="." instance=ExtResource("3_v5o7q")]
+position = Vector2(-239, 1.00001)
+rotation = -1.5708
+metadata/_edit_lock_ = true
