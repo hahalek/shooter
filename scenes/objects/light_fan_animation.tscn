@@ -204,7 +204,7 @@ animations = [{
 
 [node name="LightFanAnimation" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_il54i")
-frame_progress = 0.488525
+frame_progress = 0.380289
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 1.25
