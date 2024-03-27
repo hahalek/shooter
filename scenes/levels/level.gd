@@ -35,3 +35,13 @@ func _on_player_granade_thrown(pos, granade_direction):
 	granade.linear_velocity = granade_direction * granade.speed
 	$Projectiles.add_child(granade)
 	print("Granade thrown from the level")
+
+
+func _on_house_player_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6, 0.6), 1)
+
+
+func _on_house_player_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.55, 0.55), 1)
