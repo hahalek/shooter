@@ -16,5 +16,4 @@ func _process(_delta):
 
 
 func hit():
-	print("ouchie")
 	queue_free()

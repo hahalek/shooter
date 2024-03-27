@@ -14,7 +14,6 @@ func _process(_delta):
 	pass
 
 
-
 func _on_body_entered(_body):
 	player_entered.emit()
 
