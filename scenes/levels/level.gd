@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelParent
 
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var granade_scene: PackedScene = preload("res://scenes/projectiles/granade.tscn")
@@ -13,11 +14,6 @@ func _process(_delta):
 	pass
 
 
-func _on_gate_player_enered_gate(_body):
-	var tween = create_tween()
-	tween.tween_property($Player, "speed", 0, 0.5)
-
-
 func _on_player_laser_shot(pos, laser_direction):
 	var laser = laser_scene.instantiate() as Area2D
 	# 1. update the laser position
@@ -27,7 +23,6 @@ func _on_player_laser_shot(pos, laser_direction):
 	# 2. we have to move the laser
 	# 3. i want to add the laser scene to a Node2D
 	$Projectiles.add_child(laser)
-	print("Laser shot from the level")
 
 
 func _on_player_granade_thrown(pos, granade_direction):
@@ -35,14 +30,5 @@ func _on_player_granade_thrown(pos, granade_direction):
 	granade.position = pos
 	granade.linear_velocity = granade_direction * granade.speed
 	$Projectiles.add_child(granade)
-	print("Granade thrown from the level")
 
 
-func _on_house_player_entered():
-	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6, 0.6), 1)
-
-
-func _on_house_player_exited():
-	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 1)
