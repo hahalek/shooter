@@ -135,7 +135,7 @@ metadata/_edit_lock_ = true
 position = Vector2(483, 539)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.55, 0.55)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 

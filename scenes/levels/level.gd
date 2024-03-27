@@ -13,8 +13,9 @@ func _process(_delta):
 	pass
 
 
-func _on_gate_player_enered_gate(body):
-	print("Player has entered gate: ", body)
+func _on_gate_player_enered_gate(_body):
+	var tween = create_tween()
+	tween.tween_property($Player, "speed", 0, 0.5)
 
 
 func _on_player_laser_shot(pos, laser_direction):
@@ -44,4 +45,4 @@ func _on_house_player_entered():
 
 func _on_house_player_exited():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.55, 0.55), 1)
+	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 1)
