@@ -74,7 +74,7 @@ rotation = -3.14159
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("5_blcyx")]
 position = Vector2(486, -1358)
 autoplay = "default"
-frame_progress = 0.577721
+frame_progress = 0.725977
 metadata/_edit_lock_ = true
 
 [node name="LightFanAnimation2" parent="Lights" index="1" instance=ExtResource("5_blcyx")]
