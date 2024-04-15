@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://f5x5bkjhy85l"]
+[gd_scene load_steps=9 format=3 uid="uid://f5x5bkjhy85l"]
 
 [ext_resource type="Texture2D" uid="uid://qeow8eksbsiu" path="res://graphics/ui/bullet.png" id="1_61o8t"]
+[ext_resource type="Script" path="res://scenes/UI/ui.gd" id="1_bha2d"]
 [ext_resource type="FontFile" uid="uid://bfjpv1josl161" path="res://graphics/ui/subatomic.tsoonami.ttf" id="1_h0qte"]
 [ext_resource type="Texture2D" uid="uid://whd84ns5svct" path="res://graphics/ui/grenade.png" id="3_i5co7"]
 [ext_resource type="Texture2D" uid="uid://30h01fjdobqb" path="res://graphics/ui/progress_bar/bg.png" id="4_ipun6"]
@@ -12,6 +13,7 @@ default_font = ExtResource("1_h0qte")
 default_font_size = 16
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_bha2d")
 
 [node name="HealthBarContainer" type="MarginContainer" parent="."]
 anchors_preset = 12

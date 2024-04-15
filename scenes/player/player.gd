@@ -11,7 +11,7 @@ var can_granade: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +24,8 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	
 	# laser shooting input
-	if Input.is_action_just_pressed("primary_action") and can_laser:
+	if Input.is_action_just_pressed("primary_action") and can_laser and Globals.laser_amount > 0:
+		Globals.laser_amount -= 1
 		# randomly select Marker2D for the laser start
 		var gun_markers = $LaserStartPositions.get_children()
 		var selected_laser = gun_markers[randi() % gun_markers.size()]
@@ -37,7 +38,8 @@ func _process(_delta):
 		can_laser = false
 		$LaserCooldownTimer.start()
 	
-	if Input.is_action_just_released("secondary_action") and can_granade:
+	if Input.is_action_just_released("secondary_action") and can_granade and Globals.granade_amount > 0:
+		Globals.granade_amount -= 1
 		var pos = $LaserStartPositions/Marker2D.global_position
 		var granade_direction = (get_global_mouse_position() - pos).normalized()
 		granade_thrown.emit(pos, granade_direction)

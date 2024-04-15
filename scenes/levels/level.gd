@@ -8,9 +8,8 @@ var granade_scene: PackedScene = preload("res://scenes/projectiles/granade.tscn"
 func _ready():
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(_delta): 
 	pass
 
 
@@ -23,6 +22,7 @@ func _on_player_laser_shot(pos, laser_direction):
 	# 2. we have to move the laser
 	# 3. i want to add the laser scene to a Node2D
 	$Projectiles.add_child(laser)
+	$UI.update_laser_text()
 
 
 func _on_player_granade_thrown(pos, granade_direction):
@@ -30,5 +30,6 @@ func _on_player_granade_thrown(pos, granade_direction):
 	granade.position = pos
 	granade.linear_velocity = granade_direction * granade.speed
 	$Projectiles.add_child(granade)
+	$UI.update_granade_text()
 
 
