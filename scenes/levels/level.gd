@@ -12,7 +12,6 @@ func _ready():
 func _process(_delta): 
 	pass
 
-
 func _on_player_laser_shot(pos, laser_direction):
 	var laser = laser_scene.instantiate() as Area2D
 	# 1. update the laser position
@@ -23,7 +22,6 @@ func _on_player_laser_shot(pos, laser_direction):
 	# 3. i want to add the laser scene to a Node2D
 	$Projectiles.add_child(laser)
 	$UI.update_laser_text()
-
 
 func _on_player_granade_thrown(pos, granade_direction):
 	var granade = granade_scene.instantiate() as RigidBody2D
