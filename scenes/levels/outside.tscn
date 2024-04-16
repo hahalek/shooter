@@ -152,12 +152,14 @@ position = Vector2(511, -495)
 metadata/_edit_lock_ = true
 
 [node name="Box" parent="." index="2" instance=ExtResource("17_ma0ih")]
-position = Vector2(32, 1121)
+position = Vector2(-4321, 2359)
 rotation = -0.837758
+scale = Vector2(1.15, 1.15)
 
 [node name="TheToilet" parent="." index="3" instance=ExtResource("18_1yl1i")]
-position = Vector2(761, 1119)
-rotation = 0.322886
+position = Vector2(-1002, 3715)
+rotation = 0.881391
+scale = Vector2(0.66, 0.66)
 
 [node name="Items" parent="." index="4"]
 metadata/_edit_lock_ = true
