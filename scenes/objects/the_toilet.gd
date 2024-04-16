@@ -1,15 +1,10 @@
 extends ItemContainerScene
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 
 func hit():
-	print("Toilet")
+	if not opened:
+		$LidSprite.hide()
+		var pos = $SpawnPositions/Marker2D.global_position
+		item_opened.emit(pos, current_diraction)
+		opened = true

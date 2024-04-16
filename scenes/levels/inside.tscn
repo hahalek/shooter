@@ -51,6 +51,8 @@ metadata/_edit_lock_ = true
 
 [node name="Box" parent="Ground" index="3" instance=ExtResource("4_yrf1v")]
 position = Vector2(-1235, -1843)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Toilet" parent="Ground" index="4" instance=ExtResource("6_4ssfb")]
 position = Vector2(-1671, -1801)
@@ -69,6 +71,8 @@ metadata/_edit_lock_ = true
 [node name="Box2" parent="Ground" index="8" instance=ExtResource("4_yrf1v")]
 position = Vector2(1946, -2050)
 rotation = -3.14159
+collision_layer = 1
+collision_mask = 1
 
 [node name="Item" parent="Ground" index="9" instance=ExtResource("10_0sgwm")]
 position = Vector2(142, -672)
@@ -188,20 +192,6 @@ position = Vector2(-6633, -1268)
 scale = Vector2(2.63778, 2.97438)
 texture = ExtResource("15_krpvd")
 
-[node name="Player" parent="." index="3"]
-position = Vector2(412, -196)
-rotation = -1.5708
-
-[node name="Camera2D" parent="Player" index="7"]
-zoom = Vector2(0.5, 0.5)
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
-energy = 1.09
-texture = ExtResource("11_rbjjq")
-texture_scale = 3.0
-metadata/_edit_lock_ = true
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
 color = Color(0.392157, 0.47451, 0.517647, 1)
 blend_mode = 1
@@ -213,6 +203,20 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(413.75, 122)
 shape = SubResource("RectangleShape2D_5ug5v")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." index="6"]
+position = Vector2(412, -196)
+rotation = -1.5708
+
+[node name="Camera2D" parent="Player" index="7"]
+zoom = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
+energy = 1.09
+texture = ExtResource("11_rbjjq")
+texture_scale = 3.0
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

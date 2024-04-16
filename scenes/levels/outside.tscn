@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r47flpeltgam"]
+[gd_scene load_steps=22 format=3 uid="uid://r47flpeltgam"]
 
 [ext_resource type="PackedScene" uid="uid://cwrcykqrx2d1l" path="res://scenes/levels/level.tscn" id="1_1dds5"]
 [ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="2_ic5ai"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cgbs30enh15f" path="res://scenes/objects/steam_vent.tscn" id="12_txvmx"]
 [ext_resource type="PackedScene" uid="uid://kpyle7vcjuyb" path="res://scenes/objects/light_fan_animation.tscn" id="13_ui5is"]
 [ext_resource type="PackedScene" uid="uid://yy1xouq4g63v" path="res://scenes/items/item.tscn" id="15_c86i1"]
+[ext_resource type="PackedScene" uid="uid://luxyk8rrv1gx" path="res://scenes/objects/box.tscn" id="17_ma0ih"]
+[ext_resource type="PackedScene" uid="uid://qw87aer8evsd" path="res://scenes/objects/the_toilet.tscn" id="18_1yl1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sv5i"]
 resource_name = "walls"
@@ -149,7 +151,18 @@ position = Vector2(986.667, 602.564)
 position = Vector2(511, -495)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." index="3"]
+[node name="Box" parent="." index="2" instance=ExtResource("17_ma0ih")]
+position = Vector2(32, 1121)
+rotation = -0.837758
+
+[node name="TheToilet" parent="." index="3" instance=ExtResource("18_1yl1i")]
+position = Vector2(761, 1119)
+rotation = 0.322886
+
+[node name="Items" parent="." index="4"]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." index="6"]
 rotation = 1.43467
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]

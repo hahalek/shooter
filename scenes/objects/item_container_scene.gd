@@ -1,15 +1,7 @@
 extends StaticBody2D
 class_name ItemContainerScene
 
+@onready var current_diraction: Vector2 = Vector2.DOWN.rotated(rotation)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-func hit():
-	print("object")
+signal item_opened(pos, direction)
+var opened: bool = false

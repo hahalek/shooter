@@ -12,15 +12,11 @@ var laser_amount: int = 20:
 		laser_changed.emit()
 		
 var granade_amount: int = 3:
-	get:
-		return granade_amount
 	set(value):
 		granade_amount = value
 		granade_changed.emit()
 		
 var health_amount: int = 100:
-	get:
-		return health_amount
 	set(value):
 		health_amount = value
 		if health_amount > 100:

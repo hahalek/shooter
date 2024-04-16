@@ -1,15 +1,11 @@
-extends StaticBody2D
+extends ItemContainerScene
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 
 func hit():
-	print("Box")
+	if not opened:
+		$LidSprite.hide()
+		for i in range(5):
+			var pos = $SpawnPositions.get_child(randi()%$SpawnPositions.get_child_count()).global_position
+			item_opened.emit(pos, current_diraction)
+		opened = true

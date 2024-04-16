@@ -62,4 +62,6 @@ func add_item(type: String) -> void:
 		Globals.laser_amount += 5
 	if type == 'granade':
 		Globals.granade_amount += 1
+	if type == 'health':
+		Globals.health_amount += 40
 		
