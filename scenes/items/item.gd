@@ -18,4 +18,6 @@ func _process(delta):
 
 func _on_body_entered(body):
 	body.add_item(type)
+	if type == 'health':
+		Globals.health_amount += 40
 	queue_free()

@@ -30,7 +30,3 @@ func _on_player_granade_thrown(pos, granade_direction):
 	$Projectiles.add_child(granade)
 	$UI.update_granade_text()
 
-
-func _on_player_update_stats():
-	$UI.update_laser_text()
-	$UI.update_granade_text()

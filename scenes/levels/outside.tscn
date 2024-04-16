@@ -124,6 +124,27 @@ frame_progress = 0.356668
 [node name="Item" parent="Ground" index="11" instance=ExtResource("15_c86i1")]
 position = Vector2(455.385, 356.41)
 
+[node name="Item2" parent="Ground" index="12" instance=ExtResource("15_c86i1")]
+position = Vector2(578.462, 360.513)
+
+[node name="Item3" parent="Ground" index="13" instance=ExtResource("15_c86i1")]
+position = Vector2(630.769, 269.231)
+
+[node name="Item4" parent="Ground" index="14" instance=ExtResource("15_c86i1")]
+position = Vector2(745.641, 269.231)
+
+[node name="Item5" parent="Ground" index="15" instance=ExtResource("15_c86i1")]
+position = Vector2(858.461, 316.41)
+
+[node name="Item6" parent="Ground" index="16" instance=ExtResource("15_c86i1")]
+position = Vector2(925.128, 410.769)
+
+[node name="Item7" parent="Ground" index="17" instance=ExtResource("15_c86i1")]
+position = Vector2(964.103, 506.154)
+
+[node name="Item8" parent="Ground" index="18" instance=ExtResource("15_c86i1")]
+position = Vector2(986.667, 602.564)
+
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ic5ai")]
 position = Vector2(511, -495)
 metadata/_edit_lock_ = true

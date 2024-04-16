@@ -26,4 +26,3 @@ position_smoothing_speed = 10.0
 
 [connection signal="granade_thrown" from="Player" to="." method="_on_player_granade_thrown"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
-[connection signal="update_stats" from="Player" to="." method="_on_player_update_stats"]

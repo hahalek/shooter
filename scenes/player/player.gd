@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal laser_shot(pos, direction)
 signal granade_thrown(pos, direction)
-signal update_stats
 
 @export var max_speed: int = 700
 var speed: int = max_speed
@@ -63,7 +62,4 @@ func add_item(type: String) -> void:
 		Globals.laser_amount += 5
 	if type == 'granade':
 		Globals.granade_amount += 1
-	if type == 'health':
-		Globals.health_amount += 40
-	update_stats.emit()
 		
