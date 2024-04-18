@@ -9,6 +9,8 @@ var item_scene: PackedScene = preload("res://scenes/items/item.tscn")
 func _ready():
 	for container in get_tree().get_nodes_in_group("Container"):
 		container.connect("item_opened", _on_container_opened)
+	for scout in get_tree().get_nodes_in_group("Scouts"):
+		scout.connect("laser", _on_scout_laser)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -19,6 +21,9 @@ func _on_container_opened(pos, direction):
 	$Items.call_deferred('add_child', item)
 
 func _on_player_laser_shot(pos, laser_direction):
+	shoot_a_laser(pos, laser_direction)
+
+func shoot_a_laser(pos, laser_direction):
 	var laser = laser_scene.instantiate() as Area2D
 	# 1. update the laser position
 	laser.position = pos
@@ -34,3 +39,6 @@ func _on_player_granade_thrown(pos, granade_direction):
 	granade.linear_velocity = granade_direction * granade.speed
 	$Projectiles.add_child(granade)
 
+func _on_scout_laser(pos, direction):
+	shoot_a_laser(pos, direction)
+	

@@ -47,6 +47,7 @@ func _process(_delta):
 		$GranadeReloadTimer.start()
 	
 	move_and_slide()
+	Globals.player_pos = global_position
 
 
 func _on_laser_cooldown_timer_timeout():

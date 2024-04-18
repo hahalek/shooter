@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://r47flpeltgam"]
+[gd_scene load_steps=20 format=3 uid="uid://r47flpeltgam"]
 
 [ext_resource type="PackedScene" uid="uid://cwrcykqrx2d1l" path="res://scenes/levels/level.tscn" id="1_1dds5"]
 [ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="2_ic5ai"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ibnccosx17eh" path="res://scenes/houses/house.tscn" id="11_o0v0h"]
 [ext_resource type="PackedScene" uid="uid://cgbs30enh15f" path="res://scenes/objects/steam_vent.tscn" id="12_txvmx"]
 [ext_resource type="PackedScene" uid="uid://kpyle7vcjuyb" path="res://scenes/objects/light_fan_animation.tscn" id="13_ui5is"]
+[ext_resource type="PackedScene" uid="uid://bc7i4gifauyjl" path="res://scenes/enemies/scout.tscn" id="16_s6m1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sv5i"]
 resource_name = "walls"
@@ -128,7 +129,10 @@ frame_progress = 0.356668
 [node name="Items" parent="." index="4"]
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." index="6"]
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_s6m1p")]
+position = Vector2(1496, 1700)
+
+[node name="Player" parent="." index="7"]
 z_index = 2
 rotation = 1.43467
 

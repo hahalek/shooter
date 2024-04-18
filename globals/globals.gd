@@ -22,3 +22,5 @@ var health_amount: int = 100:
 		if health_amount > 100:
 			health_amount = 100
 		health_changed.emit()
+
+var player_pos: Vector2
