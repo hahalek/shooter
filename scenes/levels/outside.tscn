@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r47flpeltgam"]
+[gd_scene load_steps=19 format=3 uid="uid://r47flpeltgam"]
 
 [ext_resource type="PackedScene" uid="uid://cwrcykqrx2d1l" path="res://scenes/levels/level.tscn" id="1_1dds5"]
 [ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="2_ic5ai"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://ibnccosx17eh" path="res://scenes/houses/house.tscn" id="11_o0v0h"]
 [ext_resource type="PackedScene" uid="uid://cgbs30enh15f" path="res://scenes/objects/steam_vent.tscn" id="12_txvmx"]
 [ext_resource type="PackedScene" uid="uid://kpyle7vcjuyb" path="res://scenes/objects/light_fan_animation.tscn" id="13_ui5is"]
-[ext_resource type="PackedScene" uid="uid://yy1xouq4g63v" path="res://scenes/items/item.tscn" id="15_c86i1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sv5i"]
 resource_name = "walls"
@@ -53,6 +52,11 @@ sources/1 = SubResource("TileSetAtlasSource_gd0ri")
 
 [node name="Outside" instance=ExtResource("1_1dds5")]
 script = ExtResource("2_snte2")
+
+[node name="Gate" parent="." index="1" instance=ExtResource("2_ic5ai")]
+z_index = 1
+position = Vector2(511, -495)
+metadata/_edit_lock_ = true
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -121,40 +125,13 @@ position = Vector2(-1374.36, 1403.08)
 autoplay = "default"
 frame_progress = 0.356668
 
-[node name="Item" parent="Ground" index="11" instance=ExtResource("15_c86i1")]
-position = Vector2(455.385, 356.41)
-
-[node name="Item2" parent="Ground" index="12" instance=ExtResource("15_c86i1")]
-position = Vector2(578.462, 360.513)
-
-[node name="Item3" parent="Ground" index="13" instance=ExtResource("15_c86i1")]
-position = Vector2(630.769, 269.231)
-
-[node name="Item4" parent="Ground" index="14" instance=ExtResource("15_c86i1")]
-position = Vector2(745.641, 269.231)
-
-[node name="Item5" parent="Ground" index="15" instance=ExtResource("15_c86i1")]
-position = Vector2(858.461, 316.41)
-
-[node name="Item6" parent="Ground" index="16" instance=ExtResource("15_c86i1")]
-position = Vector2(925.128, 410.769)
-
-[node name="Item7" parent="Ground" index="17" instance=ExtResource("15_c86i1")]
-position = Vector2(964.103, 506.154)
-
-[node name="Item8" parent="Ground" index="18" instance=ExtResource("15_c86i1")]
-position = Vector2(986.667, 602.564)
-
-[node name="Gate" parent="." index="1" instance=ExtResource("2_ic5ai")]
-position = Vector2(511, -495)
+[node name="Items" parent="." index="4"]
 metadata/_edit_lock_ = true
 
-[node name="Items" parent="." index="2"]
-metadata/_edit_lock_ = true
-
-[node name="Player" parent="." index="4"]
+[node name="Player" parent="." index="6"]
+z_index = 2
 rotation = 1.43467
 
+[connection signal="player_enered_gate" from="Gate" to="." method="_on_gate_player_enered_gate"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
-[connection signal="player_enered_gate" from="Gate" to="." method="_on_gate_player_enered_gate"]

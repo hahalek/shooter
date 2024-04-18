@@ -13,6 +13,8 @@ script = ExtResource("1_8amjk")
 scale = Vector2(1.95, 1.95)
 metadata/_edit_lock_ = true
 
+[node name="Infestation" type="Node2D" parent="."]
+
 [node name="Items" type="Node2D" parent="."]
 
 [node name="Projectiles" type="Node2D" parent="."]
