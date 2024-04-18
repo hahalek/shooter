@@ -27,12 +27,10 @@ func _on_player_laser_shot(pos, laser_direction):
 	# 2. we have to move the laser
 	# 3. i want to add the laser scene to a Node2D
 	$Projectiles.add_child(laser)
-	$UI.update_laser_text()
 
 func _on_player_granade_thrown(pos, granade_direction):
 	var granade = granade_scene.instantiate() as RigidBody2D
 	granade.position = pos
 	granade.linear_velocity = granade_direction * granade.speed
 	$Projectiles.add_child(granade)
-	$UI.update_granade_text()
 
