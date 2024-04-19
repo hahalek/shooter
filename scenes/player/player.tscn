@@ -47,14 +47,6 @@ offset = Vector2(0.143217, -37.1145)
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_sorcv")
 
-[node name="LaserCooldownTimer" type="Timer" parent="."]
-wait_time = 0.191
-one_shot = true
-
-[node name="GranadeReloadTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="LaserStartPositions" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
@@ -69,5 +61,19 @@ position = Vector2(128, 27)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_bprkk")
 
-[connection signal="timeout" from="LaserCooldownTimer" to="." method="_on_laser_cooldown_timer_timeout"]
-[connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_granade_reload_timer_timeout"]
+[node name="Timers" type="Node" parent="."]
+
+[node name="TakeDamageCooldown" type="Timer" parent="Timers"]
+wait_time = 0.383
+
+[node name="LaserCooldownTimer" type="Timer" parent="Timers"]
+wait_time = 0.191
+one_shot = true
+
+[node name="GranadeReloadTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timers/TakeDamageCooldown" to="." method="_on_take_damage_cooldown_timeout"]
+[connection signal="timeout" from="Timers/LaserCooldownTimer" to="." method="_on_laser_cooldown_timer_timeout"]
+[connection signal="timeout" from="Timers/GranadeReloadTimer" to="." method="_on_granade_reload_timer_timeout"]
