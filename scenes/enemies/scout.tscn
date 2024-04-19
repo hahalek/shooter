@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc7i4gifauyjl"]
+[gd_scene load_steps=7 format=3 uid="uid://bc7i4gifauyjl"]
 
 [ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_dlmlj"]
 [ext_resource type="Texture2D" uid="uid://ddex6expxkjfp" path="res://graphics/enemies/scout.png" id="1_s4xt8"]
+[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_2hkjd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_muqa4"]
+shader = ExtResource("2_2hkjd")
+shader_parameter/color = Color(0.849244, 0.89175, 0.985115, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3kk8"]
 radius = 49.163
@@ -15,15 +21,18 @@ collision_mask = 11
 script = ExtResource("1_dlmlj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_muqa4")
 position = Vector2(39, 26)
 rotation = 1.5708
 texture = ExtResource("1_s4xt8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CircleShape2D_m3kk8")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
@@ -43,7 +52,7 @@ position = Vector2(132, 11)
 wait_time = 0.7
 
 [node name="TakeDamageCooldown" type="Timer" parent="Timers"]
-wait_time = 0.3
+wait_time = 0.176
 one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
