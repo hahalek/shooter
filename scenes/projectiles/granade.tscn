@@ -159,7 +159,6 @@ texture = ExtResource("1_eoe2j")
 shape = SubResource("CircleShape2D_aalwe")
 
 [node name="Explosion" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.527877)
 texture = ExtResource("3_cnwvc")
 hframes = 8
 vframes = 8

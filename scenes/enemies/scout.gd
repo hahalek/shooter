@@ -4,6 +4,8 @@ var player_nearby: bool = false
 var can_laser: bool = true
 var right_gun_use: bool = true
 
+var max_health: int = 20
+
 signal laser(pos, direction)
 
 
@@ -30,3 +32,6 @@ func _on_attack_area_body_exited(_body):
 
 func _on_laser_cooldown_timeout():
 	can_laser = true
+
+func hit():
+	print("Scout was hit.")

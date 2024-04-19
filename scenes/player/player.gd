@@ -65,4 +65,7 @@ func add_item(type: String) -> void:
 		Globals.granade_amount += 1
 	if type == 'health':
 		Globals.health_amount += 40
-		
+
+
+func hit():
+	print("Player was hit.")
