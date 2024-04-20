@@ -2,7 +2,7 @@ extends ItemContainerScene
 
 
 
-func hit():
+func hit(damage_amount: int):
 	if not opened:
 		$LidSprite.hide()
 		var pos = $SpawnPositions/Marker2D.global_position

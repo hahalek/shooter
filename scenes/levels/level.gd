@@ -45,4 +45,5 @@ func _on_scout_laser(pos, direction):
 	shoot_a_laser(pos, direction)
 
 func _on_bug_bite():
-	$Player.hit()
+	var damage_amount = 8
+	$Player.hit(damage_amount)

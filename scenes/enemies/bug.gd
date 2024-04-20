@@ -23,11 +23,11 @@ func _process(_delta):
 		velocity = (Globals.player_pos - global_position).normalized() * speed
 		move_and_slide()
 
-func hit():
+func hit(damage_amount: int):
 	if can_take_damage:
 		$AnimatedSprite2D.material.set_shader_parameter("progress", 1)
 		$Particles/HitParticles.emitting = true
-		health -= 5
+		health -= damage_amount
 		if health <= 0:
 			$Particles/HitParticles.emitting = true
 			await get_tree().create_timer(0.5).timeout

@@ -68,10 +68,10 @@ func add_item(type: String) -> void:
 		Globals.health_amount += 40
 
 
-func hit():
+func hit(damage_amount: int):
 	if can_take_damage:
 		$PlayerSprite.material.set_shader_parameter("progress", 1)
-		Globals.health_amount -= 7
+		Globals.health_amount -= damage_amount
 		can_take_damage = false
 		$Timers/TakeDamageCooldown.start()
 

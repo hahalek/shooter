@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://r47flpeltgam"]
+[gd_scene load_steps=22 format=3 uid="uid://r47flpeltgam"]
 
 [ext_resource type="PackedScene" uid="uid://cwrcykqrx2d1l" path="res://scenes/levels/level.tscn" id="1_1dds5"]
 [ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="2_ic5ai"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://kpyle7vcjuyb" path="res://scenes/objects/light_fan_animation.tscn" id="13_ui5is"]
 [ext_resource type="PackedScene" uid="uid://bc7i4gifauyjl" path="res://scenes/enemies/scout.tscn" id="16_s6m1p"]
 [ext_resource type="PackedScene" uid="uid://bdq0wyq0xiot0" path="res://scenes/enemies/bug.tscn" id="17_8t3p7"]
+[ext_resource type="PackedScene" uid="uid://b457ggi22tegd" path="res://scenes/enemies/drone.tscn" id="18_7krxv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sv5i"]
 resource_name = "walls"
@@ -130,38 +131,14 @@ frame_progress = 0.356668
 [node name="Items" parent="." index="4"]
 metadata/_edit_lock_ = true
 
-[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_s6m1p")]
-position = Vector2(3649, 1787)
+[node name="Drone" parent="Enemies" index="0" instance=ExtResource("18_7krxv")]
+position = Vector2(2455, 2042)
 
-[node name="Scout5" parent="Enemies" index="1" instance=ExtResource("16_s6m1p")]
-position = Vector2(3198, 2144)
+[node name="Scout" parent="Enemies" index="1" instance=ExtResource("16_s6m1p")]
+position = Vector2(2959, 847)
 
-[node name="Scout2" parent="Enemies" index="2" instance=ExtResource("16_s6m1p")]
-position = Vector2(-1717, 1915)
-
-[node name="Scout3" parent="Enemies" index="3" instance=ExtResource("16_s6m1p")]
-position = Vector2(-3516, 3225)
-
-[node name="Scout4" parent="Enemies" index="4" instance=ExtResource("16_s6m1p")]
-position = Vector2(-4577, 3591)
-
-[node name="Scout6" parent="Enemies" index="5" instance=ExtResource("16_s6m1p")]
-position = Vector2(-453, 5577)
-
-[node name="Scout7" parent="Enemies" index="6" instance=ExtResource("16_s6m1p")]
-position = Vector2(-951, 6352)
-
-[node name="Bug" parent="Enemies" index="7" instance=ExtResource("17_8t3p7")]
-position = Vector2(1215, 709)
-
-[node name="Bug2" parent="Enemies" index="8" instance=ExtResource("17_8t3p7")]
-position = Vector2(-431, 2141)
-
-[node name="Bug3" parent="Enemies" index="9" instance=ExtResource("17_8t3p7")]
-position = Vector2(1928, 1470)
-
-[node name="Bug4" parent="Enemies" index="10" instance=ExtResource("17_8t3p7")]
-position = Vector2(1704, 2883)
+[node name="Bug" parent="Enemies" index="2" instance=ExtResource("17_8t3p7")]
+position = Vector2(-790, 2084)
 
 [node name="Player" parent="." index="7"]
 z_index = 2

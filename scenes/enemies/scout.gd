@@ -36,9 +36,9 @@ func _on_laser_cooldown_timeout():
 	can_laser = true
 
 
-func hit():
+func hit(damage_amount: int):
 	if can_take_damage:
-		health -= 9
+		health -= damage_amount
 		$Sprite2D.material.set_shader_parameter("progress", 1)
 		can_take_damage = false
 		$Timers/TakeDamageCooldown.start()
