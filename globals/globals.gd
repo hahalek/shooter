@@ -4,7 +4,7 @@ signal health_changed
 signal laser_changed
 signal granade_changed
 
-var laser_amount: int = 20:
+var laser_amount: int = 900:
 	get:
 		return laser_amount
 	set(value):

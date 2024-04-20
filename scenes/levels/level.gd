@@ -11,6 +11,8 @@ func _ready():
 		container.connect("item_opened", _on_container_opened)
 	for scout in get_tree().get_nodes_in_group("Scouts"):
 		scout.connect("laser", _on_scout_laser)
+	for bug in get_tree().get_nodes_in_group("Bug"):
+		bug.connect("bite", _on_bug_bite)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -41,4 +43,6 @@ func _on_player_granade_thrown(pos, granade_direction):
 
 func _on_scout_laser(pos, direction):
 	shoot_a_laser(pos, direction)
-	
+
+func _on_bug_bite():
+	$Player.hit()

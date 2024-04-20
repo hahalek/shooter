@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_2hkjd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_muqa4"]
+resource_local_to_scene = true
 shader = ExtResource("2_2hkjd")
 shader_parameter/color = Color(0.849244, 0.89175, 0.985115, 1)
 shader_parameter/progress = 0.0
