@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bdq0wyq0xiot0"]
+[gd_scene load_steps=43 format=3 uid="uid://bdq0wyq0xiot0"]
 
 [ext_resource type="Texture2D" uid="uid://dv87nv0k23atd" path="res://graphics/enemies/bug/attack/00010.png" id="1_2i34f"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_l4mma"]
@@ -160,9 +160,27 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Curve" id="Curve_jxvpv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.435424, 0.930956), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yuw0a"]
+curve = SubResource("Curve_jxvpv")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fvt0y"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+emission_shape_scale = Vector3(1, 1, 0)
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 522.16
+initial_velocity_max = 664.59
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_yuw0a")
+anim_offset_max = 1.0
 
 [node name="Bug" type="CharacterBody2D" groups=["Bug", "Entity"]]
 script = ExtResource("1_l4mma")
@@ -176,10 +194,12 @@ sprite_frames = SubResource("SpriteFrames_g1scy")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i81b2")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 rotation = 1.5708
 collision_layer = 2
 collision_mask = 15
@@ -190,6 +210,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vifdn")
 
 [node name="NoticeArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 shape = SubResource("CircleShape2D_6m5t3")
@@ -200,17 +221,19 @@ shape = SubResource("CircleShape2D_6m5t3")
 wait_time = 0.605
 
 [node name="TakeDamageCooldown" type="Timer" parent="Timers"]
-wait_time = 0.263
+wait_time = 0.157
 
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="HitParticles" type="GPUParticles2D" parent="Particles"]
+modulate = Color(0.610024, 0.960876, 7.70092e-07, 1)
 material = SubResource("CanvasItemMaterial_rwlrk")
+emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_fvt0y")
 texture = ExtResource("33_eu2sv")
-
-[node name="DeathParticles" type="GPUParticles2D" parent="Particles"]
+lifetime = 0.4
+one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

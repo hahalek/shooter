@@ -26,8 +26,11 @@ func _process(_delta):
 func hit():
 	if can_take_damage:
 		$AnimatedSprite2D.material.set_shader_parameter("progress", 1)
+		$Particles/HitParticles.emitting = true
 		health -= 5
 		if health <= 0:
+			$Particles/HitParticles.emitting = true
+			await get_tree().create_timer(0.5).timeout
 			queue_free()
 		can_take_damage = false
 		$Timers/TakeDamageCooldown.start()
