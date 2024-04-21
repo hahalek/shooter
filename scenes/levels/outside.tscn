@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://r47flpeltgam"]
+[gd_scene load_steps=21 format=3 uid="uid://r47flpeltgam"]
 
 [ext_resource type="PackedScene" uid="uid://cwrcykqrx2d1l" path="res://scenes/levels/level.tscn" id="1_1dds5"]
 [ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="2_ic5ai"]
@@ -15,9 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ibnccosx17eh" path="res://scenes/houses/house.tscn" id="11_o0v0h"]
 [ext_resource type="PackedScene" uid="uid://cgbs30enh15f" path="res://scenes/objects/steam_vent.tscn" id="12_txvmx"]
 [ext_resource type="PackedScene" uid="uid://kpyle7vcjuyb" path="res://scenes/objects/light_fan_animation.tscn" id="13_ui5is"]
-[ext_resource type="PackedScene" uid="uid://bc7i4gifauyjl" path="res://scenes/enemies/scout.tscn" id="16_s6m1p"]
-[ext_resource type="PackedScene" uid="uid://bdq0wyq0xiot0" path="res://scenes/enemies/bug.tscn" id="17_8t3p7"]
-[ext_resource type="PackedScene" uid="uid://b457ggi22tegd" path="res://scenes/enemies/drone.tscn" id="18_7krxv"]
+[ext_resource type="PackedScene" uid="uid://chwmadsmym0ki" path="res://scenes/enemies/car.tscn" id="16_p5o7e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sv5i"]
 resource_name = "walls"
@@ -52,6 +50,12 @@ texture_region_size = Vector2i(390, 390)
 tile_size = Vector2i(390, 390)
 sources/0 = SubResource("TileSetAtlasSource_2sv5i")
 sources/1 = SubResource("TileSetAtlasSource_gd0ri")
+
+[sub_resource type="Curve2D" id="Curve2D_w4c32"]
+_data = {
+"points": PackedVector2Array(-463.862, -214.96, 463.862, 214.96, -1109, 1788, -599.627, -101.823, 599.627, 101.823, 283, 1913, -565.685, -463.862, 565.685, 463.862, 1403, 3078, -305.47, -11.3137, 305.47, 11.3137, 3112, 3463, -724.077, 509.117, 724.077, -509.117, 5578, 2852, -67.8823, 350.725, 67.8823, -350.725, 6630, 974, 79.196, 294.156, -79.196, -294.156, 6562, -814, 346.758, -49.0048, -346.758, 49.0048, 5736, -1380, -22.6658, -286.311, 22.6658, 286.311, 5306, -904, 101.823, -395.98, -101.823, 395.98, 5601, 589, 384.666, -113.137, -384.666, 113.137, 5238, 1234, 214.96, 169.706, -214.96, -169.706, 4107, 1109, -33.9411, 305.47, 33.9411, -305.47, 3768, 250, -45.2548, 644.881, 45.2548, -644.881, 3971, -644, 181.019, 226.274, -181.019, -226.274, 3689, -1753, 101.823, 39.598, -101.823, -39.598, 3168, -2307, 271.529, -237.588, -271.529, 237.588, -2263, -2138, 22.6274, -237.588, -22.6274, 237.588, -2840, -961, -181.019, -226.274, 181.019, 226.274, -1912, 962, 0, 0, 0, 0, -1109, 1788)
+}
+point_count = 20
 
 [node name="Outside" instance=ExtResource("1_1dds5")]
 script = ExtResource("2_snte2")
@@ -131,18 +135,20 @@ frame_progress = 0.356668
 [node name="Items" parent="." index="4"]
 metadata/_edit_lock_ = true
 
-[node name="Drone" parent="Enemies" index="0" instance=ExtResource("18_7krxv")]
-position = Vector2(2455, 2042)
-
-[node name="Scout" parent="Enemies" index="1" instance=ExtResource("16_s6m1p")]
-position = Vector2(2959, 847)
-
-[node name="Bug" parent="Enemies" index="2" instance=ExtResource("17_8t3p7")]
-position = Vector2(-790, 2084)
-
 [node name="Player" parent="." index="7"]
 z_index = 2
+position = Vector2(90, 1664)
 rotation = 1.43467
+
+[node name="Camera2D" parent="Player" index="6"]
+metadata/_edit_lock_ = true
+
+[node name="CarPath" type="Path2D" parent="." index="9"]
+curve = SubResource("Curve2D_w4c32")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("16_p5o7e")]
+position = Vector2(-1109, 1788)
+rotation = 0.433953
 
 [connection signal="player_enered_gate" from="Gate" to="." method="_on_gate_player_enered_gate"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
