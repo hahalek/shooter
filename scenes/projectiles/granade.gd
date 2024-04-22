@@ -3,7 +3,7 @@ extends RigidBody2D
 var speed = 550
 var speed_multiplier: int = 1
 signal granade_exploded(pos)
-@export var damage_amount: int = 10
+@export var damage_amount: int = 5
 
 var explosion_active: bool = false
 var explosion_radius: int = 400
