@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dcppr6drbd8dc" path="res://graphics/enemies/hunter/parts/leg_back_outer.png" id="7_ufev0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4elni"]
-radius = 66.0
-height = 760.0
+radius = 33.0
+height = 336.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yi4ew"]
 radius = 10367.7
@@ -61,6 +61,33 @@ modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_4r6lk")
 modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_1dh2c")
 modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_e1bee")
 
+[sub_resource type="Animation" id="Animation_mootv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Targets/FrontRight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(190.991, 77.4775)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Targets/FrontLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(189.189, -77.4775)]
+}
+
 [sub_resource type="Animation" id="Animation_ndch7"]
 resource_name = "walk"
 length = 0.4
@@ -89,32 +116,29 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(192.793, -124.324), Vector2(248.649, -90.0901), Vector2(189.189, -77.4775), Vector2(135.135, -102.703), Vector2(192.793, -124.324)]
 }
-
-[sub_resource type="Animation" id="Animation_mootv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Targets/FrontRight:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Targets/BackLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(190.991, 77.4775)]
+"values": [Vector2(-159.459, -20.7207), Vector2(-198.198, -18.018), Vector2(-160.36, -79.2793), Vector2(-120.721, -23.4234), Vector2(-159.459, -20.7207)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Targets/FrontLeft:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Targets/BackRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(189.189, -77.4775)]
+"values": [Vector2(-158.559, 82.8829), Vector2(-109.91, 19.8198), Vector2(-154.054, 25.2252), Vector2(-198.198, 30.6306), Vector2(-158.559, 82.8829)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kyemt"]
@@ -124,25 +148,21 @@ _data = {
 }
 
 [node name="Hunter" type="CharacterBody2D"]
-scale = Vector2(0.555, 0.555)
+scale = Vector2(1.84, 1.84)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_miih3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4elni")
 
 [node name="NoticeArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
-visible = false
 shape = SubResource("CircleShape2D_yi4ew")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_qxr4n")
@@ -157,20 +177,21 @@ wait_time = 0.431
 autostart = true
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2(-58, 3)
 modification_stack = SubResource("SkeletonModificationStack2D_ed7vg")
 
 [node name="Torso" type="Bone2D" parent="Skeleton2D"]
 
 [node name="Torso" type="Sprite2D" parent="Skeleton2D/Torso"]
-top_level = true
 position = Vector2(-4, 4)
 rotation = 1.5708
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_3rd6v")
 metadata/_edit_lock_ = true
 
 [node name="FrontRightLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(52.2523, 30.6306)
+rotation = 0.769066
+scale = Vector2(0.999867, 0.999867)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/FrontRightLeg"]
@@ -192,8 +213,8 @@ texture = ExtResource("4_y0t6w")
 
 [node name="FrontLeftLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(52.2523, -30.6306)
-rotation = -1.65301
-scale = Vector2(0.999938, 0.999938)
+rotation = -0.767624
+scale = Vector2(0.999871, 0.999871)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/FrontLeftLeg"]
@@ -245,6 +266,8 @@ texture = ExtResource("6_5yki5")
 
 [node name="BackLeftLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(9.00901, -30.6306)
+rotation = 0.304961
+scale = Vector2(0.999899, 0.999899)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/BackLeftLeg"]
@@ -268,6 +291,8 @@ texture = ExtResource("7_ufev0")
 
 [node name="BackRightLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(5.40541, 30.6306)
+rotation = -0.577718
+scale = Vector2(0.999965, 0.999965)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/BackRightLeg"]
@@ -288,8 +313,7 @@ rotation = 1.5708
 texture = ExtResource("7_ufev0")
 
 [node name="Targets" type="Node2D" parent="."]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+position = Vector2(-58, 3)
 
 [node name="FrontRight" type="Marker2D" parent="Targets"]
 position = Vector2(190.991, 77.4775)
@@ -298,10 +322,10 @@ position = Vector2(190.991, 77.4775)
 position = Vector2(189.189, -77.4775)
 
 [node name="BackLeft" type="Marker2D" parent="Targets"]
-position = Vector2(-156.757, -54.0541)
+position = Vector2(-211.022, -60.0652)
 
 [node name="BackRight" type="Marker2D" parent="Targets"]
-position = Vector2(-165.766, 66.6667)
+position = Vector2(-140.37, 91.5652)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

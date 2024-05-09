@@ -13,6 +13,7 @@ func _physics_process(_delta):
 		var direction: Vector2 = (next_path_position - global_position).normalized()
 		velocity = direction * speed
 		look_at(Globals.player_pos)
+		$AnimationPlayer.play("walk")
 		move_and_slide()
 	
 
