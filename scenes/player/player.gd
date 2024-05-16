@@ -72,6 +72,7 @@ func hit(damage_amount: int):
 	if can_take_damage:
 		$PlayerSprite.material.set_shader_parameter("progress", 1)
 		Globals.health_amount -= damage_amount
+		$AudioStreamPlayer2D.play()
 		can_take_damage = false
 		$Timers/TakeDamageCooldown.start()
 

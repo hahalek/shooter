@@ -4,6 +4,8 @@ signal health_changed
 signal laser_changed
 signal granade_changed
 
+var player_hit_sound: AudioStreamPlayer2D
+
 var laser_amount: int = 900:
 	get:
 		return laser_amount
@@ -24,3 +26,5 @@ var health_amount: int = 100:
 		health_changed.emit()
 
 var player_pos: Vector2
+
+

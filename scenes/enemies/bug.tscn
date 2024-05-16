@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dv87nv0k23atd" path="res://graphics/enemies/bug/attack/00010.png" id="1_2i34f"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_l4mma"]
+[ext_resource type="Shader" path="res://shaders/scout.gdshader" id="2_2us7u"]
 [ext_resource type="Texture2D" uid="uid://cli6vaik0ui0d" path="res://graphics/enemies/bug/attack/00011.png" id="2_n6ojs"]
-[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_x00kv"]
 [ext_resource type="Texture2D" uid="uid://cmbw6w5umniar" path="res://graphics/enemies/bug/attack/00012.png" id="3_jw2h1"]
 [ext_resource type="Texture2D" uid="uid://doqiwgehxkmtk" path="res://graphics/enemies/bug/attack/00013.png" id="4_ljgpf"]
 [ext_resource type="Texture2D" uid="uid://cp0ma66kgnrdm" path="res://graphics/enemies/bug/attack/00014.png" id="5_r2ksl"]
@@ -36,7 +36,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6fgyh"]
 resource_local_to_scene = true
-shader = ExtResource("2_x00kv")
+shader = ExtResource("2_2us7u")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 

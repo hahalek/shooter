@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://c1ah6f11ryf1b" path="res://graphics/enemies/drone.png" id="1_hqksn"]
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_hvs5a"]
-[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_bbott"]
+[ext_resource type="Shader" path="res://shaders/scout.gdshader" id="2_yvvdt"]
 [ext_resource type="Texture2D" uid="uid://crf2uasflynjl" path="res://graphics/explosions/explosion_3.png" id="3_kvj3a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0mxhm"]
 resource_local_to_scene = true
-shader = ExtResource("2_bbott")
+shader = ExtResource("2_yvvdt")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
@@ -141,6 +141,7 @@ shape = SubResource("CircleShape2D_tjayp")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+visible = false
 shape = SubResource("CircleShape2D_ea128")
 
 [node name="TakeDamageCooldown" type="Timer" parent="."]

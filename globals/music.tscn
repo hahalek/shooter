@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0gcm16oqlbfe"]
+
+[ext_resource type="AudioStream" uid="uid://cgwe8jb5h1xbd" path="res://graphics/enemies/hunter/parts/audio/battleThemeA.mp3" id="1_y7lwb"]
+
+[node name="Music" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_y7lwb")
+autoplay = true

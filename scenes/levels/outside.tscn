@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://r47flpeltgam"]
+[gd_scene load_steps=24 format=3 uid="uid://r47flpeltgam"]
 
 [ext_resource type="PackedScene" uid="uid://cwrcykqrx2d1l" path="res://scenes/levels/level.tscn" id="1_1dds5"]
 [ext_resource type="PackedScene" uid="uid://cy3cusc5gsgj1" path="res://scenes/objects/gate.tscn" id="2_ic5ai"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cgbs30enh15f" path="res://scenes/objects/steam_vent.tscn" id="12_txvmx"]
 [ext_resource type="PackedScene" uid="uid://kpyle7vcjuyb" path="res://scenes/objects/light_fan_animation.tscn" id="13_ui5is"]
 [ext_resource type="PackedScene" uid="uid://ck8l36re1vy07" path="res://scenes/enemies/hunter.tscn" id="16_ww3ba"]
+[ext_resource type="PackedScene" uid="uid://bdq0wyq0xiot0" path="res://scenes/enemies/bug.tscn" id="17_h6pck"]
+[ext_resource type="PackedScene" uid="uid://b457ggi22tegd" path="res://scenes/enemies/drone.tscn" id="18_87ndc"]
+[ext_resource type="PackedScene" uid="uid://bc7i4gifauyjl" path="res://scenes/enemies/scout.tscn" id="19_g2jlq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sv5i"]
 resource_name = "walls"
@@ -200,15 +203,28 @@ metadata/_edit_lock_ = true
 [node name="Hunter" parent="Enemies" index="0" instance=ExtResource("16_ww3ba")]
 position = Vector2(447, 2350)
 
+[node name="Bug" parent="Enemies" index="1" instance=ExtResource("17_h6pck")]
+position = Vector2(1095, 1006)
+
+[node name="Bug2" parent="Enemies" index="2" instance=ExtResource("17_h6pck")]
+position = Vector2(1874, 622)
+
+[node name="Drone" parent="Enemies" index="3" instance=ExtResource("18_87ndc")]
+position = Vector2(3854, 2222)
+
+[node name="Scout" parent="Enemies" index="4" instance=ExtResource("19_g2jlq")]
+position = Vector2(2052, 3726)
+
 [node name="Player" parent="." index="7"]
 z_index = 2
 position = Vector2(1970, 1614)
 rotation = 1.43467
 
-[node name="Camera2D" parent="Player" index="6"]
+[node name="Camera2D" parent="Player" index="7"]
 metadata/_edit_lock_ = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="9"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_n638n")
 metadata/_edit_lock_ = true
 

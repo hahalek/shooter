@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bobfb8c57h6vj"]
+[gd_scene load_steps=10 format=3 uid="uid://bobfb8c57h6vj"]
 
 [ext_resource type="Texture2D" uid="uid://f66m10vjjy2e" path="res://graphics/player/player.png" id="1_da8ju"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_td1ul"]
-[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="3_ivht2"]
+[ext_resource type="Shader" path="res://shaders/scout.gdshader" id="3_a7o1w"]
 [ext_resource type="Texture2D" uid="uid://22wrof8g0tnu" path="res://graphics/decals/white.png" id="3_tqqjt"]
+[ext_resource type="AudioStream" uid="uid://5vnrv3mr4glm" path="res://graphics/enemies/hunter/parts/audio/solid_impact.ogg" id="5_syixg"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gaxgm"]
 lifetime_randomness = 0.21
@@ -19,7 +20,7 @@ scale_max = 0.4
 color = Color(0.682353, 0.901961, 0.968627, 0.847059)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cfhi"]
-shader = ExtResource("3_ivht2")
+shader = ExtResource("3_a7o1w")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
@@ -80,6 +81,9 @@ one_shot = true
 [node name="GranadeReloadTimer" type="Timer" parent="Timers"]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_syixg")
 
 [connection signal="timeout" from="Timers/TakeDamageCooldown" to="." method="_on_take_damage_cooldown_timeout"]
 [connection signal="timeout" from="Timers/LaserCooldownTimer" to="." method="_on_laser_cooldown_timer_timeout"]

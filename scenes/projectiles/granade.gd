@@ -8,6 +8,8 @@ signal granade_exploded(pos)
 var explosion_active: bool = false
 var explosion_radius: int = 400
 
+func _ready():
+	$Sprite2D.visible = true
 
 func _process(_delta):
 	if explosion_active:
