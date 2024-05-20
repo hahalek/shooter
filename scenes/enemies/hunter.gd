@@ -17,7 +17,7 @@ func _physics_process(_delta):
 		var next_path_position: Vector2 = $NavigationAgent2D.get_next_path_position()
 		var direction: Vector2 = (next_path_position - global_position).normalized()
 		velocity = direction * speed
-		look_at(Globals.player_pos)
+		look_at(next_path_position)
 		if not player_nearby:
 			move_and_slide()
 	
